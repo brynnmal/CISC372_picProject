@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include <time.h>
 #include <string.h>
+#include <stdlib.h>
+#include <pthread.h>
 #include "image.h"
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -51,12 +53,60 @@ uint8_t getPixelValue(Image* srcImage,int x,int y,int bit,Matrix algorithm){
     return result;
 }
 
+typedef struct {
+    Image* srcImage;
+    Image* destImage;
+    Matrix algorithm;
+    int start_row;
+    int end_row;
+} ThreadArgs;
+
+void* thread_convolute(void* args){
+    ThreadArgs* targs = (ThreadArgs*)args;
+    Image* srcImage = targs->srcImage;
+    Image* destImage = targs->destImage;
+    Matrix algorithm;
+    memcpy(algorithm, targs->algorithm, sizeof(Matrix));
+    for (int row = targs->start_row; row < targs->end_row; row++){
+        for (int pix = 0; pix < srcImage->width; pix++){
+            for(int bit = 0; bit < srcImage->bpp; bit++){
+                destImage->data[Index(pix,row,srcImage->width,bit,srcImage->bpp)] = 
+                getPixelValue(srcImage, pix, row, bit, algorithm);
+            }
+        }
+    }
+    pthread_exit(NULL);
+}
+
 //convolute:  Applies a kernel matrix to an image
 //Parameters: srcImage: The image being convoluted
 //            destImage: A pointer to a  pre-allocated (including space for the pixel array) structure to receive the convoluted image.  It should be the same size as srcImage
 //            algorithm: The kernel matrix to use for the convolution
 //Returns: Nothing
+//4 threads - can be changed for the situation
+#define num_threads 4
 void convolute(Image* srcImage,Image* destImage,Matrix algorithm){
+    pthread_t threads[4];
+    ThreadArgs targs[4];
+    
+    int rows_per_thread = srcImage->height / num_threads;
+    for (int i = 0; i < num_threads; i++){
+        targs[i].srcImage = srcImage;
+        targs[i].destImage = destImage;
+        memcpy(targs[i].algorithm, algorithm, sizeof(Matrix));
+        targs[i].start_row = i * rows_per_thread;
+        if (i== num_threads - 1){
+            targs[i].end_row = srcImage->height;
+        }else{
+            targs[i].end_row = (i + 1) * rows_per_thread;
+        }
+        pthread_create(&threads[i], NULL, thread_convolute, &targs[i]);
+    }
+    for(int i = 0; i < num_threads; i++){
+        pthread_join(threads[i], NULL);
+    }
+    /*
+    OG CODE
     int row,pix,bit,span;
     span=srcImage->bpp*srcImage->bpp;
     for (row=0;row<srcImage->height;row++){
@@ -66,6 +116,7 @@ void convolute(Image* srcImage,Image* destImage,Matrix algorithm){
             }
         }
     }
+        */
 }
 
 //Usage: Prints usage information for the program
