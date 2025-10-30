@@ -1,0 +1,26 @@
+Script started on Thu 30 Oct 2025 01:26:14 PM EDT
+]0;brynnmal@login00.darwin:~/CISC372_picProject[?1034h[(ea-cisc372-silber:brynnmal)@login00.darwin CISC372[K__picProject]$ exitsrun ./image2 pic1.jpg blur[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kls[Kexport OMP_NUM_THREADS=$SLURM_CPUS_PER__TASK[A[C[C[C[C[C[C[C[C[Cgcc -std=c99 image.c -o image -lpthread[K[A[C[C[C[C[C[C[C[C[C[C[C[C[Cexport OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK[A[C[C[C[C[C[C[C[C[Cgcc -std=c99 image.c -o image -lpthread[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthread [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C2.c -o image2 -fopenmmap[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clthrea[1Pd[A[C[C[C[C[C[C[C[C[C[C[C[C[17Pcd CISC372_picProject
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -std=c99 image2.c -o image2 -lthreaad[A[C[C[C[C[C[C[C[C[C[C[C[Cls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit clone https://github.com/brynnmal/CCISC372_picProject[Ascp /path/to/image.c brynnmal@darwin.hp[5Pc.udel.edu:~[A[Cls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscp /path/to/image.c brynnmal@darwin.hppc.udel.edu:~[A[Cls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscp /path/to/image.c brynnmal@darwin.hppc.udel.edu:~[A[Cgit clone https://github.com/brynnmal/CISC372_picProject[Als[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -std=c99 image2.c -o image2 -lthreaad[A[C[C[C[C[C[C[C[C[C[C[C[C[17Pcd CISC372_picProject
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -std=c99 image2.c -o image2 -lthreaad[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cfopenmap[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.c -o image -lthread [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpthreadd[A[C[C[C[C[C[C[C[C[C[C[C[C[Cexport OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK[A[C[C[C[C[C[C[C[C[Cls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csrun ./image pic1.jpg blur[1@2[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[K[Ksalloc --ntasks=1 --cpus-per-task=4 -- partition=standard
+salloc: Granted job allocation 5708389
+salloc: Waiting for resource configuration
+salloc: Nodes r1n45 are ready for job
+]0;brynnmal@r1n45.darwin:~/CISC372_picProject[?1034h[brynnmal@r1n45 CISC372_picProject]$ export OMP_NUM_ THREADS=$SLURM_CPUS_PER_TASK
+]0;brynnmal@r1n45.darwin:~/CISC372_picProject[brynnmal@r1n45 CISC372_picProject]$ export OMP_NUM_TTHREADS=$SLURM_CPUS_PER_TASK[Aroject]$ exit[K
+[K[A[brynnmal@r1n45 CISC372_picProject]$ exitsrun ./image2 piic1.jpg blur[An45 CISC372_picProject]$ srun ./image pic[1P1.jpg blur[A1n45 CISC372_picProject]$ srun ./image2 pi[1@c1.jpg blur[An45 CISC372_picProject]$ srun ./image pic[1P1.jpg blur
+Took 8 seconds
+]0;brynnmal@r1n45.darwin:~/CISC372_picProject[brynnmal@r1n45 CISC372_picProject]$ srun ./image picc1.jpg blur[A1n45 CISC372_picProject]$ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK[Aroject]$ exit[K
+[K[A[brynnmal@r1n45 CISC372_picProject]$ exitsrun ./image2 piic1.jpg blur[An45 CISC372_picProject]$ srun ./image pic[1P1.jpg blur[A1n45 CISC372_picProject]$ srun ./image2 pi[1@c1.jpg blur
+Took 8 seconds
+]0;brynnmal@r1n45.darwin:~/CISC372_picProject[brynnmal@r1n45 CISC372_picProject]$ exit
+logout
+salloc: Relinquishing job allocation 5708389
+]0;brynnmal@login00.darwin:~/CISC372_picProject[(ea-cisc372-silber:brynnmal)@login00.darwin CISC372__picProject]$ exit
+exit
+
+Script done on Thu 30 Oct 2025 01:27:56 PM EDT
